@@ -1,13 +1,12 @@
 const axios = require("axios");
 const { Country } = require("../db.js")
+const { data } = require("../../api/db.json")
 
 module.exports = async function(req, res) {
     try {  
         const countries = await Country.findOne()
         if (countries) throw new Error("No es necesario volver a cargar la base de datos.")
         
-        const { data } = await axios.get("http://localhost:5000/countries");
-
         data.forEach(item => {
             Country.create({
                 name: item.name,

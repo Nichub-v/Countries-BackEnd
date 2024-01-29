@@ -4,6 +4,9 @@ const morgan = require("morgan");
 const cors = require("cors");
 
 const { Country } = require('./db.js');
+const {
+  HOST
+} = process.env;
 
 const server = express();
 
