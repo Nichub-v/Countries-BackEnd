@@ -4,9 +4,6 @@ const CountryModel = require("./models/Country.js")
 
 const fs = require('fs');
 const path = require('path');
-const {
-  DB
-} = process.env;
 
 const sequelize = new Sequelize(`${process.env.POSTGRES_URL}?sslmode=require`, {
   logging: false, 
