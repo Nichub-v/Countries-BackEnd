@@ -5,18 +5,14 @@ const CountryModel = require("./models/Country.js")
 const fs = require('fs');
 const path = require('path');
 const {
-  DB_USER, DB_PASSWORD, DB_HOST, RAILWAY_DB
+  DB
 } = process.env;
 
-// const sequelize = new Sequelize(`postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/countries`, {
-//   logging: false, 
-//   native: false, 
-// });
-
-const sequelize = new Sequelize(`${RAILWAY_DB}`, {
+const sequelize = new Sequelize(`${process.env.POSTGRES_URL}?sslmode=require`, {
   logging: false, 
   native: false, 
 });
+
 
 const basename = path.basename(__filename);
 
